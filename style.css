@@ -1,0 +1,746 @@
+/* ==========================================
+   BIRTHDAY WEBSITE
+   OLIVE GREEN + BEIGE THEME
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+
+/* ==========================================
+   COLOUR VARIABLES
+========================================== */
+
+:root {
+    --beige: #eee6d5;
+    --light-beige: #f8f4eb;
+    --cream: #fffdf7;
+
+    --olive: #737b55;
+    --dark-olive: #4f593d;
+    --soft-olive: #9ba183;
+
+    --brown: #6b5847;
+    --gold: #b29a68;
+
+    --dark: #292d25;
+    --white: #ffffff;
+}
+
+
+/* ==========================================
+   GENERAL STYLES
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    line-height: 1.7;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+section {
+    padding: 90px 8%;
+}
+
+
+/* ==========================================
+   NAVIGATION
+========================================== */
+
+.navbar {
+    width: 100%;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: var(--cream);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    border-bottom: 1px solid rgba(115, 123, 85, 0.15);
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--dark-olive);
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+}
+
+.nav-links a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--dark);
+
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--olive);
+}
+
+
+/* ==========================================
+   HERO SECTION
+========================================== */
+
+.hero {
+    min-height: 88vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 80px 8%;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(155, 161, 131, 0.35),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            var(--beige),
+            var(--light-beige)
+        );
+}
+
+.hero-content {
+    max-width: 850px;
+}
+
+.small-title,
+.section-label {
+    color: var(--olive);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 1.05;
+    color: var(--dark-olive);
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    display: block;
+    color: var(--brown);
+}
+
+.hero-text {
+    max-width: 650px;
+    margin: 0 auto 35px;
+
+    color: #625b4e;
+    font-size: 1.05rem;
+}
+
+.hero-button {
+    display: inline-block;
+
+    background: var(--olive);
+    color: var(--white);
+
+    padding: 14px 28px;
+
+    border-radius: 50px;
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.hero-button:hover {
+    background: var(--dark-olive);
+    transform: translateY(-3px);
+}
+
+
+/* ==========================================
+   INTRO SECTION
+========================================== */
+
+.intro {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+    background: var(--cream);
+}
+
+.intro h2,
+.story-section h2,
+.gallery-section h2,
+.video-section h2,
+.messages-section h2,
+.wishes-section h2,
+.surprise-section h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--dark-olive);
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    line-height: 1.2;
+    margin-bottom: 25px;
+}
+
+.intro p:not(.section-label) {
+    max-width: 650px;
+    margin: auto;
+    color: #6a6459;
+}
+
+
+/* ==========================================
+   STORY / TIMELINE
+========================================== */
+
+.story-section {
+    background: var(--light-beige);
+}
+
+.story-section > h2,
+.story-section > .section-label {
+    text-align: center;
+}
+
+.timeline {
+    max-width: 850px;
+    margin: 60px auto 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+
+    background: var(--cream);
+
+    padding: 28px;
+
+    border-radius: 18px;
+
+    border-left: 5px solid var(--olive);
+
+    box-shadow: 0 10px 30px rgba(79, 89, 61, 0.08);
+}
+
+.timeline-number {
+    min-width: 55px;
+    height: 55px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: var(--olive);
+    color: var(--white);
+
+    border-radius: 50%;
+
+    font-weight: 700;
+}
+
+.timeline-content h3 {
+    color: var(--dark-olive);
+    margin-bottom: 5px;
+}
+
+.timeline-content p {
+    color: #6a6459;
+}
+
+
+/* ==========================================
+   PHOTO GALLERY
+========================================== */
+
+.gallery-section {
+    background: var(--cream);
+    text-align: center;
+}
+
+.section-description {
+    color: #6a6459;
+    margin-bottom: 40px;
+}
+
+.gallery {
+    max-width: 1100px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.photo-card {
+    background: var(--beige);
+
+    padding: 10px;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    box-shadow: 0 12px 30px rgba(79, 89, 61, 0.1);
+
+    transition: 0.3s ease;
+}
+
+.photo-card:hover {
+    transform: translateY(-6px);
+}
+
+.photo-card img {
+    width: 100%;
+    height: 350px;
+
+    object-fit: cover;
+
+    border-radius: 14px;
+}
+
+
+/* ==========================================
+   VIDEO SECTION
+========================================== */
+
+.video-section {
+    background: var(--beige);
+    text-align: center;
+}
+
+.video-container {
+    max-width: 850px;
+    margin: 40px auto 0;
+
+    background: var(--dark);
+
+    padding: 12px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 15px 40px rgba(41, 45, 37, 0.2);
+}
+
+.video-container video {
+    width: 100%;
+    display: block;
+
+    border-radius: 12px;
+}
+
+
+/* ==========================================
+   SPECIAL MESSAGES
+========================================== */
+
+.messages-section {
+    background: var(--cream);
+    text-align: center;
+}
+
+.message-cards {
+    max-width: 1100px;
+    margin: 45px auto 0;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.message-card {
+    background: var(--light-beige);
+
+    padding: 35px 25px;
+
+    border-radius: 20px;
+
+    border-top: 4px solid var(--olive);
+
+    text-align: left;
+
+    transition: 0.3s ease;
+}
+
+.message-card:hover {
+    transform: translateY(-5px);
+}
+
+.message-card h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--dark-olive);
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.message-card p {
+    color: #6a6459;
+}
+
+
+/* ==========================================
+   WISHES SECTION
+========================================== */
+
+.wishes-section {
+    background:
+        linear-gradient(
+            135deg,
+            var(--dark-olive),
+            var(--olive)
+        );
+
+    color: var(--white);
+
+    text-align: center;
+}
+
+.wishes-section .section-label {
+    color: var(--beige);
+}
+
+.wishes-section h2 {
+    color: var(--white);
+}
+
+.wishes-section .section-description {
+    color: #eee6d5;
+}
+
+#wishForm {
+    max-width: 700px;
+    margin: 40px auto;
+
+    text-align: left;
+
+    background: var(--cream);
+
+    padding: 35px;
+
+    border-radius: 20px;
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--dark-olive);
+
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border: 1px solid #d9d2c4;
+
+    border-radius: 12px;
+
+    outline: none;
+
+    font-family: inherit;
+    font-size: 1rem;
+
+    background: var(--light-beige);
+
+    color: var(--dark);
+
+    transition: 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--olive);
+
+    box-shadow: 0 0 0 3px rgba(115, 123, 85, 0.15);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+#wishForm button {
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    background: var(--olive);
+    color: var(--white);
+
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+#wishForm button:hover {
+    background: var(--dark-olive);
+    transform: translateY(-2px);
+}
+
+
+/* ==========================================
+   WISH CARDS
+========================================== */
+
+.wish-list {
+    max-width: 900px;
+    margin: 35px auto 0;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+    text-align: left;
+}
+
+.wish-card {
+    background: var(--cream);
+
+    padding: 25px;
+
+    border-radius: 18px;
+
+    box-shadow: 0 10px 25px rgba(41, 45, 37, 0.12);
+
+    animation: wishAppear 0.4s ease;
+}
+
+.wish-card h3 {
+    color: var(--dark-olive);
+
+    font-family: 'Playfair Display', serif;
+
+    margin-bottom: 8px;
+}
+
+.wish-card p {
+    color: #625b4e;
+}
+
+@keyframes wishAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* ==========================================
+   FINAL SURPRISE
+========================================== */
+
+.surprise-section {
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(155, 161, 131, 0.25),
+            transparent 50%
+        ),
+        var(--light-beige);
+
+    text-align: center;
+}
+
+.surprise-section > p:not(.section-label) {
+    max-width: 650px;
+    margin: 0 auto 30px;
+
+    color: #6a6459;
+}
+
+.birthday-cake {
+    font-size: 5rem;
+
+    margin: 25px 0;
+
+    animation: cakeFloat 2.5s ease-in-out infinite;
+}
+
+@keyframes cakeFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+}
+
+.surprise-section h3 {
+    font-family: 'Playfair Display', serif;
+
+    color: var(--dark-olive);
+
+    font-size: clamp(1.8rem, 4vw, 2.7rem);
+}
+
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+footer {
+    background: var(--dark-olive);
+
+    color: var(--white);
+
+    text-align: center;
+
+    padding: 35px 8%;
+}
+
+footer p {
+    margin-bottom: 5px;
+}
+
+.footer-small {
+    font-size: 0.85rem;
+    color: var(--beige);
+}
+
+
+/* ==========================================
+   MOBILE RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 800px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        min-height: 80vh;
+    }
+
+    section {
+        padding: 70px 6%;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .message-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .wish-list {
+        grid-template-columns: 1fr;
+    }
+
+    .photo-card img {
+        height: 300px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .logo {
+        font-size: 1.05rem;
+    }
+
+    .nav-links a {
+        font-size: 0.85rem;
+    }
+
+    .hero {
+        padding: 60px 6%;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero-text {
+        font-size: 0.95rem;
+    }
+
+    .timeline-item {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    #wishForm {
+        padding: 25px 20px;
+    }
+
+    .photo-card img {
+        height: 250px;
+    }
+
+}
