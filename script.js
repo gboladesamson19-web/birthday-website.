@@ -1,64 +1,71 @@
 // ==========================================
 // BIRTHDAY WEBSITE JAVASCRIPT
 // ==========================================
-
-
 // ==========================================
 // BIRTHDAY WISHES
 // ==========================================
+
+const FORM_SUBMIT_EMAIL = "5b75521ebfc37ff42e898da49ad483bf";
 
 const wishForm = document.getElementById("wishForm");
 const wishList = document.getElementById("wishList");
 
 if (wishForm && wishList) {
-
-    wishForm.addEventListener("submit", function (event) {
-
-        // Stop the page from refreshing
+    wishForm.addEventListener("submit", async function (event) {
         event.preventDefault();
 
-        // Get the person's name
-        const nameInput = document.getElementById("wishName");
+        const name = document.getElementById("wishName").value.trim();
+        const message = document.getElementById("wishMessage").value.trim();
 
-        // Get their birthday message
-        const messageInput = document.getElementById("wishMessage");
-
-        const name = nameInput.value.trim();
-        const message = messageInput.value.trim();
-
-        // Make sure both fields contain something
         if (name === "" || message === "") {
             return;
         }
 
-        // Create a new wish card
-        const wishCard = document.createElement("div");
+        const submitButton = wishForm.querySelector('button[type="submit"]');
+        submitButton.disabled = true;
 
-        wishCard.classList.add("wish-card");
+        try {
+            const response = await fetch(
+                `https://formsubmit.co/ajax/${FORM_SUBMIT_EMAIL}`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                    },
+                    body: JSON.stringify({
+                        name: name,
+                        message: message,
+                        _subject: "New birthday wish for Jayden"
+                    })
+                }
+            );
 
-        // Put the person's name and message inside the card
-        const wishTitle = document.createElement("h3");
-        wishTitle.textContent = name;
+            const result = await response.json();
 
-        const wishText = document.createElement("p");
-        wishText.textContent = message;
+            if (
+                !response.ok ||
+                result.success === false ||
+                result.success === "false"
+            ) {
+                throw new Error("The wish could not be sent.");
+            }
 
-        wishCard.appendChild(wishTitle);
-        wishCard.appendChild(wishText);
+            wishForm.reset();
+            wishList.replaceChildren();
 
-        // Put the newest wish at the top
-        wishList.prepend(wishCard);
-
-        // Clear the form after submitting
-        wishForm.reset();
+            const thankYouCard = document.createElement("div");
+            thankYouCard.classList.add("wish-card");
+            thankYouCard.textContent = "Thank you! Your wish was sent.";
+            wishList.appendChild(thankYouCard);
+        } catch (error) {
+            console.error(error);
+            alert(error.message);
+        } finally {
+            submitButton.disabled = false;
+        }
     });
 }
-
-
-// ==========================================
-// SMOOTH NAVIGATION
-// ==========================================
-
 const navigationLinks = document.querySelectorAll(".nav-links a");
 
 navigationLinks.forEach(function (link) {
